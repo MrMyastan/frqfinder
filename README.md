@@ -1,0 +1,4 @@
+- [ ] to upper
+- [ ] pretty
+- [ ] explanations
+- [ ] automagically update with new years
