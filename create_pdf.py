@@ -2,6 +2,7 @@ import argparse
 import PyPDF2
 import re
 from os import path
+import os
 
 def tyfq(shorthand):
     res = re.match(r"^(ab|AB|BC|bc|)(\d{2}|\d{4})(a|b|A|B|#)([1-6])$",shorthand)
@@ -62,7 +63,6 @@ def frqs_pdf(frqs,outfile):
     # creating an object
     for p,q in [frq_file(f) for f in frqs if frq_file(f) is not None]:
         if p is not None: 
-            # print(p)
             with open(p, 'rb') as file:
                 fileReader = PyPDF2.PdfReader(file)
                 frq_page = int(q)
@@ -71,9 +71,20 @@ def frqs_pdf(frqs,outfile):
                     pw.add_page(page)
     with open(outfile, 'wb') as fo:
         pw.write(fo)
-                
+
+parser = argparse.ArgumentParser(
+                    prog='FRQ PDF Creator',
+                    description='Takes a list of FRQs and produces a PDF containing all of the questions',
+                    epilog='By NifleySnifley')      
+parser.add_argument("-o","--output", type=str, required=True) 
+parser.add_argument('-i',"--infile", type=argparse.FileType('r'), required=False)
+parser.add_argument("frqs", nargs='*')
 
 if __name__=="__main__":
-    # frq_file("06#1")
-    # frqs_pdf(['06B1','09B2'],"test.pdf")
-    print(get_question("BC98A3"))
+    args = parser.parse_args()
+    # print(args)
+
+    if (args.infile is not None):
+        args.frqs = [line.strip().split()[0] for line in args.infile.readlines()]
+
+    frqs_pdf(args.frqs, args.output)

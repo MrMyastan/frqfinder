@@ -65,9 +65,6 @@ links = {"AB": links_ab, "BC": links_bc}
 with open("links.json", "w") as f:
     f.write(json.dumps(links))
 
-
-print("links.json")
-
 FOLDER = "FRQs"
 
 for tn,test in links.items():
