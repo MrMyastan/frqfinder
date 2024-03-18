@@ -57,7 +57,7 @@
         const searchParams = new URLSearchParams(window.location.search);
         if (searchParams.has("frq")) {
             var identifier = searchParams.get("frq");
-            link = getLink(identifier)
+            link = getLink(identifier).replaceAll(" ", "").toUpperCase()
             if (link) {
                 window.location.replace(link)
             }
