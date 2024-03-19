@@ -12,22 +12,23 @@ body {
 }
   
 .collapsible {
-  color:red;
+  color:white;
+  border-radius: 25px;
+  background-color: rebeccapurple;
+  padding: 15px;
+  width: 50%;
+  text-align: left;
 }
 
 .collapsible-header {
-  background-color: #eee;
-  color: #444;
   cursor: pointer;
-  padding: 18px;
   width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
+  padding:none;
+  
 }
 
 .collapsible-content {
-  color:rebeccapurple;
+  display:none;
+  overflow: hidden;
 }
 
