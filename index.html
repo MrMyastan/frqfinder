@@ -67,22 +67,43 @@
 
 <body>
     <div class="App">
-        <header class="App-header">
-                <label for="shorthand">FRQ Identifier</label><br>
-                <input type="text" id="shorthand" name="shorthand" autofocus/><br>
-                <input type="submit" id="submit" value="Submit" onclick="doRedirect()"/>
-                <p>
-                    The pieces of the identifier are: <br>
-                    <ul>
-                        <li>The Test: <i>AB</i> or <i>BC</i>. Can be left out and it will default to <i>AB</i>.</li>
-                        <li>The Year: A two digit or four digit year. Two digit numbers starting with <i>9</i> will be assumed to be in the 1900s, otherwise they will be in the 2000s.</li>
-                        <li>The Test Form: Can be <i>#</i>, <i>A</i>, or <i>B</i>. <i>A</i> or <i>#</i> are the default form and <i>B</i> is for Form B (not available for all years).</li>
-                        <li>The Problem Number: A number <i>1</i> through <i>6</i>. Is used to pull up the right page if your browser supports opening a pdf to a specific page. Will only work in years with just one title page and only one page per problem, so you may still have to scroll to find the problem.</li>
-                    </ul>
-                    The site will ignore regular spaces and automatically change lowercase letters to uppercase letters. It will take you take the scoring guideline document so you don't have to pull up another document to correct your work. <br>
-                    The Regular Expression used to match the identifier for those curious: /^(AB|BC|)(\d{2}|\d{4})(A|B|#)([1-6])$/i
-                </p>
-        </header>
+        <header>FRQinder</header>
+        <div>
+            <label for="shorthand">Identifier:</label>
+            <input type="text" id="shorthand" name="shorthand" autofocus/><br>
+            <input type="submit" id="submit" value="Submit" onclick="doRedirect()"/>
+        </div>
+        <div class="collapsible">
+            <h2 class="collapsible-header">Format</h2>
+            <hr>
+            <p class="collapsible-content">
+                (TT)YY(YY)FN
+                The pieces of the identifier are:
+                <ul>
+                    <li>The <i>T</i>est: <i>AB</i> or <i>BC</i>. Can be left out and it will default to <i>AB</i>.</li>
+                    <li>The <i>Y</i>ear: A two digit or four digit year. Two digit numbers starting with <i>9</i> will be assumed to be in the 1900s, otherwise they will be in the 2000s.</li>
+                    <li>The Test <i>F</i>orm: Can be <i>#</i>, <i>A</i>, or <i>B</i>. <i>A</i> or <i>#</i> are the default form and <i>B</i> is for Form B (not available for all years).</li>
+                    <li>The Problem <i>N</i>umber: A number <i>1</i> through <i>6</i>. Is used to pull up the right page if your browser supports opening a pdf to a specific page. Will only work in years with just one title page and only one page per problem, so you may still have to scroll to find the problem.</li>
+                </ul>
+                The site will ignore regular spaces and automatically change lowercase letters to uppercase letters. It will take you take the scoring guideline document so you don't have to pull up another document to correct your work. <br>
+                The Regular Expression used to match the identifier for those curious: /^(AB|BC|)(\d{2}|\d{4})(A|B|#)([1-6])$/i
+            </p>
+        </div>
+        <div class="collapsible">
+            <button type="button" class="collapsible-header">Examples</button>
+            <hr>
+            <p class="collapsible-content">
+                <ul>
+                    <li>1999#2: AP Calc AB 1999 FRQ Problem 2</li>
+                    <li>07B3: AP Calc AB 2007 Form B Problem 3</li>
+                    <li>BC11A5: AP Calc BC 2011 Form A Problem 5</li>
+                    <li>AB17#1: AP Calc AB 2017 Problem 1</li>
+                    <li>98A6: AP Calc AB 1998 Problem 6</li>
+                    <li>BC2016A3: AP Calc BC 2016 Problem 3</li>
+                </ul>
+                There are only Form B FRQs for 2002-2011 (inclusive). '#' and 'A' are treated as the same thing and will work for any year.
+            </p>
+        </div>
     </div>
 
     <script>
