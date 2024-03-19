@@ -5,30 +5,72 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #282c34;
 }
     
 .App {
   background-color: #282c34;
+  min-height: 100vh;
+  text-align: center;
+  color: white;
 }
+
+/* #name {
+  font-weight: bold;
+  font-size: xx-large;
+  margin: 10px;
+} */
   
+#submission {
+  margin: 0px 0px 5px 0px;
+  font-size: x-large;
+}
+
+input[type="text"] {
+  font-size: large;
+}
+
+input[type="submit"] {
+  font-size: large;
+}
+
+
 .collapsible {
   color:white;
-  border-radius: 25px;
+  border-radius: 10px;
   background-color: rebeccapurple;
-  padding: 15px;
-  width: 50%;
+  padding: none;
+  width: 40%;
   text-align: left;
+  margin: 5px auto 5px auto;
 }
 
 .collapsible-header {
   cursor: pointer;
   width: 100%;
-  padding:none;
-  
+  padding: 10px;
+  outline: none;
+  border: none;
+  margin: none;
 }
 
+/* .collapsible-header.active {
+  border-bottom: 5px solid;
+} */
+
 .collapsible-content {
-  display:none;
+  display: none;
   overflow: hidden;
+  margin: none;
+  border: none;
+  outline: none;
+  padding: 0px 5px 5px 5px;
+  font-size: large;
+  padding: 10px;
+  width: 100%;
+}
+
+ul {
+  margin-top: 0px;
 }
 

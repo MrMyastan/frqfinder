@@ -67,16 +67,15 @@
 
 <body>
     <div class="App">
-        <header>FRQinder</header>
-        <div>
+        <h1 id="name">FRQinder</h1>
+        <div id="submission">
             <label for="shorthand">Identifier:</label>
-            <input type="text" id="shorthand" name="shorthand" autofocus/><br>
+            <input type="text" id="shorthand" name="shorthand" autofocus/>
             <input type="submit" id="submit" value="Submit" onclick="doRedirect()"/>
         </div>
         <div class="collapsible">
             <h2 class="collapsible-header">Format</h2>
-            <p class="collapsible-content">
-                <hr>
+            <div class="collapsible-content" id="explanation">
                 (TT)YY(YY)FN
                 The pieces of the identifier are:
                 <ul>
@@ -87,12 +86,11 @@
                 </ul>
                 The site will ignore regular spaces and automatically change lowercase letters to uppercase letters. It will take you take the scoring guideline document so you don't have to pull up another document to correct your work. <br>
                 The Regular Expression used to match the identifier for those curious: /^(AB|BC|)(\d{2}|\d{4})(A|B|#)([1-6])$/i
-            </p>
+            </div>
         </div>
         <div class="collapsible">
             <h2 class="collapsible-header">Examples</h2>
-            <p class="collapsible-content">
-                <hr>
+            <div class="collapsible-content" id="examples">
                 <ul>
                     <li>1999#2: AP Calc AB 1999 FRQ Problem 2</li>
                     <li>07B3: AP Calc AB 2007 Form B Problem 3</li>
@@ -102,7 +100,7 @@
                     <li>BC2016A3: AP Calc BC 2016 Problem 3</li>
                 </ul>
                 There are only Form B FRQs for 2002-2011 (inclusive). '#' and 'A' are treated as the same thing and will work for any year.
-            </p>
+            </div>
         </div>
     </div>
 
@@ -119,6 +117,18 @@
                 document.getElementById("submit").click();
             }
         }); 
+
+        var collapsibles = document.getElementsByClassName("collapsible")
+        for (let i = 0; i < collapsibles.length; i++) {
+            const element = collapsibles[i];
+            var header = element.getElementsByClassName("collapsible-header")
+            var content = element.getElementsByClassName("collapsible-content")
+            header[0].addEventListener("click", function () {
+                this.nextElementSibling.style.display = this.nextElementSibling.style.display == "block" ? "none" : "block"
+                this.classList.toggle("active")
+            })
+
+        };
     </script>
 
 
