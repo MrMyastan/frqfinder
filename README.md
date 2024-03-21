@@ -1,9 +1,10 @@
 - [x] to upper
 - [x] strip spaces
-- [ ] pretty
+- [x] pretty
 - [x] explanations
 - [ ] automagically update with new years
 - [ ] fix for recent years
 - [ ] make sure all are 7
 - [ ] complaint form
 - [ ] scoring guidelines or testing document
+- [ ] about
