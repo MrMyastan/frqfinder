@@ -36,38 +36,36 @@ input[type="submit"] {
 
 
 .collapsible {
-  color:white;
   border-radius: 10px;
   background-color: rebeccapurple;
-  padding: none;
+  padding: 10px;
   width: 40%;
   text-align: left;
-  margin: 5px auto 5px auto;
+  margin: 10px auto 10px auto;
 }
 
 .collapsible-header {
   cursor: pointer;
   width: 100%;
-  padding: 10px;
   outline: none;
   border: none;
-  margin: none;
+  margin: 0px;
 }
 
-/* .collapsible-header.active {
+.collapsible-header.active {
   border-bottom: 5px solid;
-} */
+}
 
 .collapsible-content {
   display: none;
   overflow: hidden;
-  margin: none;
   border: none;
   outline: none;
-  padding: 0px 5px 5px 5px;
+  padding: 0px;
   font-size: large;
-  padding: 10px;
   width: 100%;
+  line-height: 1.5em;
+  margin-top: 5px;
 }
 
 ul {
