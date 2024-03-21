@@ -52,9 +52,9 @@ input[type="submit"] {
   margin: 0px;
 }
 
-.collapsible-header.active {
+/* .collapsible-header.active {
   border-bottom: 5px solid;
-}
+} */
 
 .collapsible-content {
   display: none;
@@ -66,6 +66,8 @@ input[type="submit"] {
   width: 100%;
   line-height: 1.5em;
   margin-top: 5px;
+  border-top: 2px solid;
+  padding-top: 5px;
 }
 
 ul {
