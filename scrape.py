@@ -2,6 +2,9 @@ from bs4 import BeautifulSoup
 from urllib import request
 from pprint import pprint
 import json
+import requests
+from os import path
+import os
 
 url = "https://apcentral.collegeboard.org/courses/ap-calculus-bc/exam/past-exam-questions"
 req = request.Request(url, headers={'User-Agent' : "Magic Browser"}) 
@@ -61,3 +64,14 @@ links = {"AB": links_ab, "BC": links_bc}
 
 with open("links.json", "w") as f:
     f.write(json.dumps(links))
+
+FOLDER = "FRQs"
+
+for tn,test in links.items():
+    for fn, form in test.items():
+        for year,link in form.items():
+            fpath = path.join(FOLDER, tn,year)
+            os.makedirs(fpath,exist_ok=True)
+            blob = requests.get(link).content
+            with open(path.join(fpath,f"{fn}.pdf"),'wb') as f:
+                f.write(blob)
